@@ -48,7 +48,6 @@ export const Form = ({ feedbackType, onCancel, onSent }: Props) => {
       screenshot: `data:image/png;base64, ${screenshotBase64}`,
       comment,
     };
-    console.log(body);
     try {
       await api.post("/feedbacks", body);
       onSent();

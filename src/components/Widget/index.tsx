@@ -27,6 +27,7 @@ const Widget: React.FC = () => {
 
   const handleRestartFeedback = () => {
     setFeedbackType(null);
+    setFeedbackSent(false);
   };
   return (
     <>
