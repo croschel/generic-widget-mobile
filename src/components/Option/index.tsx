@@ -20,7 +20,7 @@ export const Option = ({ title, image, ...rest }: Props) => {
   return (
     <TouchableOpacity {...rest} style={styles.container}>
       <Image source={image} style={styles.image} />
-      <Text style={styles.title}>Something</Text>
+      <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
 };

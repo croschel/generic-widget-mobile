@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { ChatTeardropDots } from "phosphor-react-native";
 import { TouchableOpacity } from "react-native";
 import BottomSheet from "@gorhom/bottom-sheet";
@@ -14,9 +14,19 @@ import { Copyright } from "../Copyright";
 export type FeedbackType = keyof typeof feedbackTypes;
 
 const Widget: React.FC = () => {
+  const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null);
+  const [feedbackSent, setFeedbackSent] = useState(false);
   const bottomSheetRef = useRef<BottomSheet>(null);
   const handleOpen = () => {
     bottomSheetRef?.current?.expand();
+  };
+
+  const handleFeedbackSent = () => {
+    setFeedbackSent(true);
+  };
+
+  const handleRestartFeedback = () => {
+    setFeedbackType(null);
   };
   return (
     <>
@@ -33,7 +43,17 @@ const Widget: React.FC = () => {
         ref={bottomSheetRef}
         snapPoints={[1, 280]}
       >
-        <Form feedbackType="BUG" />
+        {feedbackSent ? (
+          <Success onSentAnotherFeedBack={handleRestartFeedback} />
+        ) : feedbackType ? (
+          <Form
+            feedbackType={feedbackType}
+            onSent={handleFeedbackSent}
+            onCancel={handleRestartFeedback}
+          />
+        ) : (
+          <Options onChooseOption={setFeedbackType} />
+        )}
         <Copyright />
       </BottomSheet>
     </>
