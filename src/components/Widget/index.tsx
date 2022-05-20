@@ -8,6 +8,8 @@ import { styles } from "./styles";
 import { Options } from "../Options";
 import { feedbackTypes } from "../../utils/feedbackTypes";
 import { Form } from "../Form";
+import { Success } from "../Success";
+import { Copyright } from "../Copyright";
 
 export type FeedbackType = keyof typeof feedbackTypes;
 
@@ -32,6 +34,7 @@ const Widget: React.FC = () => {
         snapPoints={[1, 280]}
       >
         <Form feedbackType="BUG" />
+        <Copyright />
       </BottomSheet>
     </>
   );

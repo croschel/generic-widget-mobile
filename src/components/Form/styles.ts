@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   },
   header: {
     flexDirection: "row",
-    marginVertical: 16,
+    marginVertical: 8,
   },
   titleContainer: {
     flex: 1,
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
   input: {
     height: 112,
     padding: 12,
-    minWidth: 320,
+    minWidth: "100%",
     marginBottom: 8,
     borderRadius: 4,
     borderWidth: 1,

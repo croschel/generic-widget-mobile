@@ -16,7 +16,6 @@ export const Options = () => {
           <Option key={key} title={value.title} image={value.image} />
         ))}
       </View>
-      <Copyright />
     </View>
   );
 };
