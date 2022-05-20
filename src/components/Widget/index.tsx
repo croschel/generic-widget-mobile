@@ -1,11 +1,15 @@
 import React, { useRef } from "react";
 import { ChatTeardropDots } from "phosphor-react-native";
-import { Text, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { gestureHandlerRootHOC } from "react-native-gesture-handler";
 import { theme } from "../../theme";
 import { styles } from "./styles";
 import { Options } from "../Options";
+import { feedbackTypes } from "../../utils/feedbackTypes";
+import { Form } from "../Form";
+
+export type FeedbackType = keyof typeof feedbackTypes;
 
 const Widget: React.FC = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -27,7 +31,7 @@ const Widget: React.FC = () => {
         ref={bottomSheetRef}
         snapPoints={[1, 280]}
       >
-        <Options />
+        <Form feedbackType="BUG" />
       </BottomSheet>
     </>
   );
